@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { validate } from "../middlewares/validate";
+import { validate } from "../middlewares/validateMiddleware";
 import { register } from "../controllers/UserController";
 import { registerSchema } from "../schemas/userSchemas";
 

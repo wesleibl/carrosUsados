@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import authRoutes from './authRoutes'
 import userRoutes from './userRoutes'
+import { authMiddleware } from '../middlewares/authMiddleware';
 
 const router = Router ();
 

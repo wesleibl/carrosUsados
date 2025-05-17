@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { UserModel } from '../models/User';
-import { IUser } from '../interfaces/User';
+import { IUser } from '../types/User';
 
 export async function registerUser(userData: IUser) {
     const { name, email, password } = userData;

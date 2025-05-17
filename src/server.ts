@@ -3,7 +3,11 @@ import dotenv from 'dotenv';
 import router from './routes/router';
 import helmet from 'helmet';
 import cors from 'cors';
+import morgan from 'morgan';
+import fs from 'fs';
+import path from 'path';
 import { connectDatabase } from './config/database';
+import { errorHandler } from './middlewares/errorHandler';
 
 dotenv.config();
 
@@ -13,8 +17,9 @@ const corsOption = {
 }
 
 const app = express();
+app.use(express.json());
 
-// security
+// middlewares
 if (process.env.NODE_ENV === 'production') {
     app.use(helmet()); // force https when prod
 } else {
@@ -22,9 +27,15 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(cors(corsOption));
+app.use(errorHandler);
 
-// middlewares
-app.use(express.json());
+// logs
+
+const logStream = fs.createWriteStream(path.join(__dirname, 'logs', 'access.log'), {
+    flags: 'a'
+});
+
+app.use(morgan('combined', { stream: logStream }));
 
 // routes
 app.use(router);
@@ -36,7 +47,7 @@ async function startServer() {
 
         const PORT = process.env.PORT || 5000;
         app.listen(PORT, () => {
-            console.log(`Servidor rodadndo na porta ${PORT}`);
+            console.log(`Servidor rodando na porta ${PORT}`);
         });
     } catch(error) {
         console.error('Erro ao iniciar servidor: ', error);
