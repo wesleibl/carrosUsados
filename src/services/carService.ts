@@ -1,10 +1,20 @@
 import { CarModel } from "../models/Car";
 import { ICar } from "../types/Car";
+import { Types } from "mongoose";
 
-export async function createCar(carData: ICar) {
-    const { model, brand, year, km, transmission, addons, imageUrl, userId} = carData;
+export async function createCar(carData: ICar, userId: Types.ObjectId) {
+    const { model, brand, year, km, transmission, addons, imageUrl} = carData;
 
-    const car = new CarModel({ addons, brand, imageUrl, km, model, transmission, year, userId});
+    const car = new CarModel({ 
+        addons, 
+        brand, 
+        imageUrl, 
+        km, 
+        model, 
+        transmission,
+        year,
+        userId
+    });
     
     await car.save();
 

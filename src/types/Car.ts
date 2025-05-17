@@ -1,4 +1,4 @@
-import { Types } from 'mongoose';
+import { Types } from "mongoose";
 
 export interface ICar {
     brand: string;
@@ -8,5 +8,5 @@ export interface ICar {
     transmission: 'manual' | 'automatic';
     addons?: string[];
     imageUrl?: string;
-    userId: string;
+    userId: Types.ObjectId;
 }
