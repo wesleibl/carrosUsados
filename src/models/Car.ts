@@ -9,6 +9,7 @@ const CarSchema = new Schema<ICar>({
     transmission: { type: String, required: true},
     year: {type: Number, required: true},
     km: { type: Number, required: true},
+    price: { type: Number, required: true},
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 

@@ -9,4 +9,5 @@ export interface ICar {
     addons?: string[];
     imageUrl?: string;
     userId: Types.ObjectId;
+    price: number;
 }

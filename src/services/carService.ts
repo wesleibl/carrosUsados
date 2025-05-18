@@ -3,7 +3,7 @@ import { ICar } from "../types/Car";
 import { Types } from "mongoose";
 
 export async function createCar(carData: ICar, userId: Types.ObjectId) {
-    const { model, brand, year, km, transmission, addons, imageUrl} = carData;
+    const { model, brand, year, km, transmission, addons, imageUrl, price} = carData;
 
     const car = new CarModel({ 
         addons, 
@@ -13,6 +13,7 @@ export async function createCar(carData: ICar, userId: Types.ObjectId) {
         model, 
         transmission,
         year,
+        price,
         userId
     });
     
