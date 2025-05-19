@@ -1,4 +1,6 @@
-# carrosUsados
+# Carros Usados API
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
 
 Sistema de gerenciamento de carros usados com autenticação de usuários via JWT.
 
@@ -9,7 +11,7 @@ Sistema de gerenciamento de carros usados com autenticação de usuários via JW
 - TypeScript
 - MongoDB + Mongoose
 - JWT (JSON Web Token)
-- Joi (validação)
+- Zod (validação)
 - Dotenv
 
 ## Como rodar
