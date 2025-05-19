@@ -2,7 +2,6 @@ import { Router } from "express";
 import { validate } from "../middlewares/validateMiddleware";
 import { carById, create, deleteCar, listByUser, updateCar} from "../controllers/CarController";
 import { carSchema } from "../schemas/carSchema";
-import { authMiddleware } from "../middlewares/authMiddleware";
 
 const router = Router();
 
